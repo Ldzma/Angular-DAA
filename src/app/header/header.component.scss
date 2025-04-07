@@ -1,0 +1,124 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem; /* Espaciado más amplio */
+  background-color: #e0e7ff; /* Color más suave de fondo */
+  border-bottom: 2px solid #d1d5db; /* Bordes más suaves y más sutiles */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Aumentar la sombra para más profundidad */
+  
+  .logo {
+    font-weight: 700; /* Fuente más destacada */
+    font-size: 2rem; /* Tamaño de logo un poco más grande */
+    color: #1e3a8a; /* Color más oscuro */
+    text-align: left; /* Asegurando que el logo esté alineado a la izquierda */
+    margin-right: 2rem; /* Espacio a la derecha del logo */
+  }
+  
+  .search {
+    display: flex;
+    align-items: center;
+    background-color: #fff; /* Fondo blanco para mejor contraste */
+    border-radius: 8px; /* Bordes más redondeados */
+    width: 300px; /* Ampliar el ancho del contenedor de búsqueda */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añadir sombra sutil al input */
+    
+    input {
+      padding: 0.7rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px 0 0 8px;
+      width: 100%; /* Ocupa el 100% del espacio disponible */
+      transition: all 0.3s ease;
+      
+      &:focus {
+        border-color: #6366f1; /* Color cuando el input está enfocado */
+        outline: none;
+      }
+    }
+    
+    button {
+      padding: 0.7rem 1.5rem;
+      border: 1px solid #ccc;
+      border-left: none;
+      border-radius: 0 8px 8px 0;
+      background-color: #6366f1;
+      color: #fff;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-left: 10px; /* Ajustar el espacio entre el input y el botón */
+    }
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem; /* Más espacio entre los elementos */
+    margin-left: 0; /* Eliminar el margen izquierdo predeterminado */
+    padding-left: 0; /* Eliminar el padding izquierdo */
+    justify-content: flex-start; /* Alinea los elementos a la izquierda */
+  
+    a {
+      text-decoration: none;
+      color: #374151; /* Gris oscuro */
+      padding: 0.7rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+  
+      &:hover {
+        color: #6366f1; /* Color de hover */
+      }
+    }
+  }
+  
+  .cart-btn {
+    background: none;
+    border: none;
+    font-size: 1.6rem; /* Tamaño de ícono más grande */
+    cursor: pointer;
+    position: relative;
+  
+    span {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background-color: #6366f1;
+      color: white;
+      border-radius: 50%;
+      width: 22px; /* Aumentar el tamaño del badge */
+      height: 22px;
+      font-size: 1rem; /* Ajustar tamaño del texto dentro del badge */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+// Versión móvil
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1.5rem 1rem; /* Aumentar padding para una mejor distribución */
+  }
+  
+  .logo {
+    font-size: 1.8rem; /* Reducir el tamaño del logo en móviles */
+  }
+
+  nav ul {
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem; /* Más espacio entre los enlaces */
+    justify-content: flex-start; /* Alinear los elementos a la izquierda en móviles también */
+  }
+
+  .search {
+    width: 100%;
+    input {
+      width: 100%;
+      border-radius: 8px;
+    }
+  }
+}

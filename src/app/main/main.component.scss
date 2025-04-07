@@ -1,0 +1,69 @@
+.main-section {
+  text-align: left; /* Alinea el texto a la izquierda */
+  padding: 6rem 3rem; /* Mantengo el padding espacioso */
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+              url('https://via.placeholder.com/1200x400') center/cover no-repeat;
+  color: white;
+  margin-bottom: 3rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Agrego sombra para más profundidad */
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    font-weight: bold;
+    margin-left: 0; /* Aseguramos que no haya margen extra */
+  }
+
+  p {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+    max-width: 900px;
+    margin-left: 0; /* El texto alineado a la izquierda */
+  }
+
+  .shop-btn {
+    padding: 1rem 2.5rem;
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block; /* Asegura que el botón esté alineado a la izquierda */
+    margin-left: 0; /* El botón también alineado a la izquierda */
+    
+    &:hover {
+      background-color: darken(#0d6efd, 10%);
+      transform: translateY(-3px);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-section {
+    padding: 4rem 2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .shop-btn {
+    padding: 0.9rem 2rem;
+    font-size: 1rem;
+  }
+}
