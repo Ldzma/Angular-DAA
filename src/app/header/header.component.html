@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+  <div class="toolbar-container">
+    <div class="logo-container">
+      <mat-icon>store</mat-icon>
+      <span>vv</span>
+    </div>
+    
+    <mat-form-field appearance="outline" class="search-bar">
+      <mat-label>Buscar...</mat-label>
+      <input matInput placeholder="Buscar...">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+
+    <span class="spacer"></span>
+
+    <div class="nav-buttons">
+      <button mat-button *ngFor="let link of navLinks" [routerLink]="link.toLowerCase()">
+        {{ link }}
+      </button>
+    </div>
+
+    <button mat-icon-button [routerLink]="['/cart']" class="cart-button">
+      <mat-icon>shopping_cart</mat-icon>
+      <span class="cart-text">Carrito</span>
+    </button>
+  </div>
+</mat-toolbar>

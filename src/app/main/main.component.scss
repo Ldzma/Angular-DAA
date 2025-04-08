@@ -1,0 +1,21 @@
+.content {
+  margin-top: 64px; // Altura del toolbar
+  padding: 20px;
+  min-height: calc(100vh - 64px); // Altura total menos el toolbar
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+// Media queries para diferentes tamaños de pantalla
+@media (max-width: 768px) {
+  .content {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 5px;
+  }
+}

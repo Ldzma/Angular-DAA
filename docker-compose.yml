@@ -1,0 +1,14 @@
+version: '3'
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: dockerfile
+    ports:
+      - "4200:80"
+    volumes:
+      - ./dist/angular-base/browser:/usr/share/nginx/html
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      
