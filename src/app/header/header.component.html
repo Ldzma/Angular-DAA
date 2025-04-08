@@ -1,0 +1,18 @@
+<header class="header">
+    <div class="logo">Mi Tienda</div>
+    
+    <div class="search">
+      <input type="text" placeholder="Buscar productos...">
+      <button>🔍</button>
+    </div>
+    
+    <nav>
+      <ul>
+        <li *ngFor="let link of links">
+          <a href="#">{{ link }}</a>
+        </li>
+      </ul>
+    </nav>
+    
+    <button class="cart-btn">🛒</button>
+  </header>

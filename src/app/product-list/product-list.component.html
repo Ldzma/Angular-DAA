@@ -1,0 +1,11 @@
+<section class="product-list">
+  <h2>Productos Destacados</h2>
+  <div class="products-container">
+    <div class="product-card" *ngFor="let product of products">
+      <img [src]="product.image" [alt]="product.name" width="150">
+      <h3>{{ product.name }}</h3>
+      <!-- Usa la función de formateo -->
+      <p>{{ formatPrice(product.price) }}</p>
+    </div>
+  </div>
+</section>
