@@ -10,13 +10,11 @@ export const routes: Routes = [
   },
   { 
     path: 'home', 
-    component: MainComponent,
-    children: [
-      {
-        path: 'products',
-        component: ProductListComponent
-      }
-    ]
+    component: MainComponent
+  },
+  {
+    path: 'products',
+    component: ProductListComponent
   },
   { 
     path: '**', 

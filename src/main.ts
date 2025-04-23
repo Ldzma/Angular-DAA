@@ -7,6 +7,6 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes),
-    provideAnimations()
+    provideAnimations() // Necesario para Angular Material
   ]
 }).catch(err => console.error(err));
