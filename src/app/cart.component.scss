@@ -1,0 +1,110 @@
+.cart-title {
+  font-size: 28px;
+  margin-top: 100px;
+  font-weight: bold;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.cart-container {
+  margin-top: 70px; // 🎯 Esto baja todo para que el h2 se vea bien debajo del header
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #f9f9f9;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.item-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.item-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.delete-button {
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+.summary-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  border-top: 2px dashed #ccc;
+}
+
+.coupon-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  input {
+    padding: 8px;
+    font-size: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+
+  .error-message {
+    color: #b00020;
+    background-color: #fce4ec;
+    padding: 8px;
+    border-radius: 4px;
+  }
+
+  .success-message {
+    color: #2e7d32;
+    background-color: #e8f5e9;
+    padding: 8px;
+    border-radius: 4px;
+  }
+}
+
+.cart-summary {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: right;
+
+  h3 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: #1976d2;
+  }
+
+  p {
+    margin: 4px 0;
+    font-weight: normal;
+    font-size: 16px;
+
+    strong {
+      color: #333;
+    }
+  }
+
+  .final-total {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2e7d32;
+  }
+}

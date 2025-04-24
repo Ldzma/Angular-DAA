@@ -1,0 +1,51 @@
+<h2 class="cart-title">🛒 Carrito</h2>
+
+<div class="cart-container">
+  <!-- Lista de productos -->
+  <div *ngFor="let item of items" class="cart-item">
+    <img [src]="item.image" alt="{{ item.name }}" class="item-image" />
+    
+    <div class="item-info">
+      <h3>{{ item.name }}</h3>
+      <p>{{ item.category }}</p>
+      <p>Precio: ${{ item.price }}</p>
+      <label>
+        Cantidad:
+        <input type="number" [(ngModel)]="item.quantity" (change)="changeQuantity(item, item.quantity)" min="1" />
+      </label>
+    </div>
+
+    <button mat-icon-button color="warn" class="delete-button" (click)="remove(item.id)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+
+  <!-- Sección de cupón y resumen -->
+  <div class="summary-container">
+    <div class="coupon-section">
+      <label for="coupon">Código de Cupón:</label>
+      <input id="coupon" [(ngModel)]="couponCode" placeholder="Ingresa tu cupón" />
+      <button mat-raised-button color="primary" (click)="applyCoupon()">Aplicar</button>
+
+      <div *ngIf="discount > 0" class="success-message">
+        ✅ Cupón aplicado: {{ discount * 100 }}% de descuento
+      </div>
+      <div *ngIf="discount === 0 && couponCode" class="error-message">
+        ❌ Cupón no válido
+      </div>
+    </div>
+
+    <!-- 🎯 NUEVO resumen de cupón -->
+    <div class="cart-summary" *ngIf="discount > 0">
+      <h3>🧾 Resumen del Descuento</h3>
+      <p><strong>Subtotal:</strong> ${{ total.toFixed(2) }}</p>
+      <p><strong>Descuento:</strong> {{ (discount * 100).toFixed(0) }}%</p>
+      <p class="final-total"><strong>Total con Descuento:</strong> ${{ discountedTotal.toFixed(2) }}</p>
+    </div>
+
+    <!-- Total sin cupón -->
+    <div class="cart-summary" *ngIf="discount === 0">
+      <h3>Total: ${{ total.toFixed(2) }}</h3>
+    </div>
+  </div>
+</div>
