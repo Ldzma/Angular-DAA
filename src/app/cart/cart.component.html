@@ -1,0 +1,69 @@
+<div class="cart-container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>Carrito de Compras</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div *ngIf="cartItems.length === 0" class="empty-cart">
+                <p>Tu carrito está vacío</p>
+            </div>
+            <div *ngIf="cartItems.length > 0" class="cart-items">
+                <div *ngFor="let item of cartItems" class="cart-item">
+                    <div class="item-details">
+                        <h3>{{ item.name }}</h3>
+                        <p class="price">${{ item.price | number:'1.2-2' }}</p>
+                    </div>
+                    <div class="quantity-controls">
+                        <button mat-icon-button (click)="updateQuantity(item, item.quantity - 1)"
+                            [disabled]="item.quantity <= 1">
+                            <mat-icon>remove</mat-icon>
+                        </button>
+                        <input type="number" [(ngModel)]="item.quantity" (change)="updateQuantity(item, item.quantity)"
+                            min="1">
+                        <button mat-icon-button (click)="updateQuantity(item, item.quantity + 1)">
+                            <mat-icon>add</mat-icon>
+                        </button>
+                    </div>
+                    <button mat-icon-button color="warn" (click)="removeItem(item.id)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+
+                <div class="coupon-section">
+                    <mat-form-field appearance="outline" class="coupon-input">
+                        <mat-label>Código de Cupón</mat-label>
+                        <input matInput [(ngModel)]="couponCode" placeholder="Ej: DESCUENTO15">
+                        <mat-hint>El código debe comenzar con "DESCUENTO" y terminar con dos números</mat-hint>
+                        <button mat-icon-button matSuffix (click)="applyCoupon()" *ngIf="!appliedCoupon">
+                            <mat-icon>local_offer</mat-icon>
+                        </button>
+                        <button mat-icon-button matSuffix (click)="removeCoupon()" *ngIf="appliedCoupon">
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+                    <div *ngIf="appliedCoupon" class="applied-coupon">
+                        <p>
+                            <mat-icon>check_circle</mat-icon>
+                            Cupón aplicado: {{ appliedCoupon.code }} ({{ appliedCoupon.discount }}% de descuento)
+                        </p>
+                    </div>
+                </div>
+
+                <div class="cart-summary">
+                    <div class="summary-item">
+                        <span>Subtotal:</span>
+                        <span>${{ subtotal | number:'1.2-2' }}</span>
+                    </div>
+                    <div class="summary-item" *ngIf="discount > 0">
+                        <span>Descuento ({{ appliedCoupon?.discount }}%):</span>
+                        <span>-${{ discount | number:'1.2-2' }}</span>
+                    </div>
+                    <div class="summary-item total">
+                        <span>Total:</span>
+                        <span>${{ total | number:'1.2-2' }}</span>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

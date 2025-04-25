@@ -1,1 +1,42 @@
-<p>product-list works!</p>
+<div class="product-list-container">
+  <div class="header">
+    <h2>Nuestros Productos</h2>
+    <div class="header-controls">
+      <mat-form-field appearance="outline" class="category-filter">
+        <mat-label>Categoría</mat-label>
+        <mat-select [(value)]="selectedCategory" (selectionChange)="onCategoryChange($event.value)">
+          <mat-option value="all">Todas las categorías</mat-option>
+          <mat-option *ngFor="let category of categories" [value]="category">
+            {{ category }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-icon-button [matBadge]="totalItems" matBadgeColor="warn" class="cart-button">
+        <mat-icon>shopping_cart</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="product-grid">
+    <mat-card *ngFor="let product of filteredProducts" class="product-card">
+      <div class="product-image-container">
+        <img mat-card-image [src]="product.image" [alt]="product.name">
+        <div class="category-badge">{{ product.category }}</div>
+      </div>
+      <mat-card-content>
+        <h3>{{ product.name }}</h3>
+        <p class="description">{{ product.description }}</p>
+        <p class="price">{{ product.price | currency }}</p>
+        <div class="quantity-controls">
+          <button mat-icon-button (click)="decreaseQuantity(product)" [disabled]="product.quantity === 0">
+            <mat-icon>remove</mat-icon>
+          </button>
+          <span class="quantity">{{ product.quantity }}</span>
+          <button mat-icon-button (click)="increaseQuantity(product)">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

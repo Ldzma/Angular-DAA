@@ -1,4 +1,38 @@
 <app-header></app-header>
 <main class="content">
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1>Bienvenido a nuestra tienda</h1>
+      <p>Descubre nuestra selección de productos de alta calidad</p>
+      <button mat-raised-button color="primary" routerLink="/products">Ver todos los productos</button>
+    </div>
+  </section>
+
+  <section class="featured-products">
+    <h2>Productos Destacados</h2>
+    <div class="products-grid">
+      <mat-card *ngFor="let product of featuredProducts" class="product-card">
+        <div class="product-image-container">
+          <img mat-card-image [src]="product.image" [alt]="product.name">
+          <div class="category-badge">{{ product.category }}</div>
+        </div>
+        <mat-card-content>
+          <h3>{{ product.name }}</h3>
+          <p class="description">{{ product.description }}</p>
+          <p class="price">{{ product.price | currency }}</p>
+          <div class="quantity-controls">
+            <button mat-icon-button (click)="decreaseQuantity(product)" [disabled]="product.quantity === 0">
+              <mat-icon>remove</mat-icon>
+            </button>
+            <span class="quantity">{{ product.quantity }}</span>
+            <button mat-icon-button (click)="increaseQuantity(product)">
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+
   <router-outlet></router-outlet>
 </main>
