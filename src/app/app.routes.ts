@@ -9,9 +9,13 @@ export const routes: Routes = [
     redirectTo: '/home',
     pathMatch: 'full'
   },
-  {
-    path: 'home',
+  { 
+    path: 'home', 
     component: MainComponent
+  },
+  {
+    path: 'products',
+    component: ProductListComponent
   },
   {
     path: 'products',
